@@ -25,7 +25,9 @@ public class NumberTester {
     public interface NumberTest {
         boolean testNumber(int number);
     }
-
+    public interface NumbersTest {
+        boolean testNumber(int numberA,int numberB);
+    }
     public NumberTester(String fileName) {
         this.fileName = fileName;
     }
@@ -47,7 +49,12 @@ public class NumberTester {
      public void setPerfectNumberTest(NumberTest perfectnumberTester) {
         this.perfectnumberTester = perfectnumberTester;
     }
-
+     
+    private NumbersTest friendNumberTester;
+    public void setFriendNumberTester(NumbersTest friendNumberTest){
+        this.friendNumberTester = friendNumberTest;
+    }
+    
     public void testFile() throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         
@@ -97,7 +104,15 @@ public class NumberTester {
                     System.out.println("NOT PERFECT");
                 }
             }
-            
+            else if(parts[0].equals("5")){
+                if(friendNumberTester.testNumber(Integer.parseInt(parts[1]),Integer.parseInt(parts[2]))){
+                        System.out.println("FRIEND");
+                    }
+                    else{
+                        System.out.println("ENEMY");
+                    }
+                    break; 
+            }
         }
         
         
