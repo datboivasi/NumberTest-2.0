@@ -5,6 +5,8 @@
  */
 package numbertest;
 
+import java.util.Scanner;
+
 /**
  *
  * @author vmaglov17
@@ -17,15 +19,17 @@ public class Main {
     public static void main(String[] args) {
         NumberTester nt = new NumberTester("fileName");
 
+        //ODD TESTER
         nt.setOddEvenTester((int number) -> number % 2 != 0);
 
+        //PRIMES!!!
         nt.setPrimeTester((int number) -> {
             int i;
             int m = 0;
             int flag = 0;
-            
+
             m = number / 2;
-            
+
             if (number == 0 || number == 1) {
                 return false;
             } else {
@@ -42,15 +46,15 @@ public class Main {
             return false;
         });
 
+        //PALINDROME!!
         nt.setPalindromeTester((int number) -> {
             int rest;
             int sum = 0;
             int temp;
-             
 
             temp = number;
             while (number > 0) {
-                rest = number % 10;   
+                rest = number % 10;
                 sum = (sum * 10) + rest;
                 number = number / 10;
             }
@@ -59,7 +63,23 @@ public class Main {
             } else {
                 return false;
             }
-        });  
+        });
+
+        //PEFECT!!
+        nt.setPrimeTester((int number) -> {
+            int i;
+            int sum = 0;
+            for (i = 1; i < number; i++) {
+                if (number % i == 0) {
+                    sum = sum + i;
+                }
+            }
+            if (sum == number) {
+                return true;
+            } else {
+                return false;
+            }
+        });
     }
 
 }
