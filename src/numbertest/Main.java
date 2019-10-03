@@ -5,6 +5,7 @@
  */
 package numbertest;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         NumberTester nt = new NumberTester("fileName");
 
         //ODD TESTER
@@ -80,6 +81,24 @@ public class Main {
                 return false;
             }
         });
+        
+        nt.setFriendNumberTester((int a,int b) -> {
+            int temp1=0;
+            for(int i = 1; i<a;i++){
+                if(a%i==0){
+                    temp1= temp1+i;
+                }
+            }
+            int temp2=0;
+            for(int i = 1; i<b;i++){
+                if(b%i==0){
+                    temp2= temp2 +i;
+                }
+            }
+            return temp1==b && temp2==a; 
+        });
+        
+        nt.testFile();
     }
 
 }
