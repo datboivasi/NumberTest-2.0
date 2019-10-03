@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         NumberTester nt = new NumberTester("fileName");
         
-        nt.setOddEvenTester( );
+        nt.setOddEvenTester((int number) -> number%2!=0);
         nt.setPrimeTester( );
         nt.setPalindromeTester( );
         
