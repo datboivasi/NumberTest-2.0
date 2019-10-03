@@ -18,10 +18,14 @@ public class Main {
         NumberTester nt = new NumberTester("fileName");
 
         nt.setOddEvenTester((int number) -> number % 2 != 0);
-        
+
         nt.setPrimeTester((int number) -> {
-            int i, m = 0, flag = 0;
+            int i;
+            int m = 0;
+            int flag = 0;
+            
             m = number / 2;
+            
             if (number == 0 || number == 1) {
                 return false;
             } else {
@@ -37,9 +41,25 @@ public class Main {
             }
             return null;
         });
-         
-        //nt.setPalindromeTester();
 
+        nt.setPalindromeTester((int number) -> {
+            int rest;
+            int sum = 0;
+            int temp;
+             
+
+            temp = number;
+            while (number > 0) {
+                rest = number % 10;   
+                sum = (sum * 10) + rest;
+                number = number / 10;
+            }
+            if (temp == sum) {
+                return true;
+            } else {
+                return false;
+            }
+        });  
     }
 
 }
