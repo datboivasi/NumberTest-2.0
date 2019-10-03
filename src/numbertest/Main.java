@@ -16,11 +16,30 @@ public class Main {
      */
     public static void main(String[] args) {
         NumberTester nt = new NumberTester("fileName");
+
+        nt.setOddEvenTester((int number) -> number % 2 != 0);
         
-        nt.setOddEvenTester((int number) -> number%2!=0);
-        nt.setPrimeTester( );
-        nt.setPalindromeTester( );
-        
+        nt.setPrimeTester((int number) -> {
+            int i, m = 0, flag = 0;
+            m = number / 2;
+            if (number == 0 || number == 1) {
+                return false;
+            } else {
+                for (i = 2; i <= m; i++) {
+                    if (number % i == 0) {
+                        flag = 1;
+                        return false;
+                    }
+                }
+                if (flag == 0) {
+                    return true;
+                }
+            }
+            return null;
+        });
+         
+        //nt.setPalindromeTester();
+
     }
-    
+
 }
