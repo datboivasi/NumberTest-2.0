@@ -20,7 +20,7 @@ public class NumberTester {
     private NumberTest oddTester;
     private NumberTest primeTester;
     private NumberTest palindromeTester;
-    
+    private NumberTest perfectnumberTester;
     
     public interface NumberTest {
         boolean testNumber(int number);
@@ -43,47 +43,60 @@ public class NumberTester {
     public void setPalindromeTester(NumberTest palindromeTester) {
         this.palindromeTester = palindromeTester;
     }
+    
+     public void setPerfectNumberTest(NumberTest perfectnumberTester) {
+        this.perfectnumberTester = perfectnumberTester;
+    }
 
     public void testFile() throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         
-        String iwannadie = br.readLine();
-        int ihatelife = Integer.parseInt(iwannadie);
+        String alreadyReadLines = br.readLine();
+        int ihatelife = Integer.parseInt(alreadyReadLines);
         
         for(int i =0; i < ihatelife; i++){
-            iwannadie = br.readLine();
-            String[] parts = iwannadie.split(" ");
+            alreadyReadLines = br.readLine();
+            String[] parts = alreadyReadLines.split(" ");
             if(parts[0].equals("1")){
                 int number = Integer.parseInt(parts[1]);
-                boolean wowthisisgay = oddTester.testNumber(number);
-                if(wowthisisgay == true){
-                    System.out.println("Wow it's an odd number cunt");
+                boolean lambda = oddTester.testNumber(number);
+                if(lambda == true){
+                    System.out.println("ODD");
                 }
                 else{
-                    System.out.println("wow it's an even number");
+                    System.out.println("EVBN");
                 }
             }
             else if(parts[0].equals("2")){
                 int number = Integer.parseInt(parts[1]);
-                boolean wowthisisgay = primeTester.testNumber(number);
-                if(wowthisisgay == true){
-                    System.out.println("Wow it's a prime number cunt");
+                boolean lambda = primeTester.testNumber(number);
+                if(lambda == true){
+                    System.out.println("PRIME");
                 }
                 else{
-                    System.out.println("wow it's not an prime number faggot");
+                    System.out.println("NOT PRIME");
                 }
             }
             else if(parts[0].equals("3")){
                 int number = Integer.parseInt(parts[1]);
-                boolean wowthisisgay = palindromeTester.testNumber(number);
-                if(wowthisisgay == true){
-                    System.out.println("Wow it's an palindrome cunt");
+                boolean lambda = palindromeTester.testNumber(number);
+                if(lambda == true){
+                    System.out.println("PALINDROME");
                 }
                 else{
-                    System.out.println("wow it's not an palindrome");
+                    System.out.println("NOT PALINDROME");
                 }
             }
-            
+            else if(parts[0].equals("4")){
+                int number = Integer.parseInt(parts[1]);
+                boolean lambda = perfectnumberTester.testNumber(number);
+                if(lambda == true){
+                    System.out.println("PERFECT");
+                }
+                else{
+                    System.out.println("NOT PERFECT");
+                }
+            }
             
         }
         

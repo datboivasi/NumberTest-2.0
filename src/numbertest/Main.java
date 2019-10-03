@@ -39,7 +39,7 @@ public class Main {
                     return true;
                 }
             }
-            return null;
+            return false;
         });
 
         nt.setPalindromeTester((int number) -> {
