@@ -57,9 +57,10 @@ public class NumberTester {
     
     public void testFile() throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
-        
+
         String alreadyReadLines = br.readLine();
-        int ihatelife = Integer.parseInt(alreadyReadLines);
+        int ihatelife;
+        ihatelife = Integer.parseInt(alreadyReadLines);
         
         for(int i =0; i < ihatelife; i++){
             alreadyReadLines = br.readLine();

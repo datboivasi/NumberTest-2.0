@@ -18,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        NumberTester nt = new NumberTester("fileName");
+        NumberTester nt = new NumberTester("fileName.txt");
 
         //ODD TESTER
         nt.setOddEvenTester((int number) -> number % 2 != 0);
@@ -66,8 +66,8 @@ public class Main {
             }
         });
 
-        //PEFECT!!
-        nt.setPrimeTester((int number) -> {
+        //PERFECT!!
+        nt.setPerfectNumberTest((int number) -> {
             int i;
             int sum = 0;
             for (i = 1; i < number; i++) {
